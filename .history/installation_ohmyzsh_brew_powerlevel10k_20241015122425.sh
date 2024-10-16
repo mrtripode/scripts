@@ -31,7 +31,17 @@ chsh -s $(which zsh)
 echo '---> Installing Oh My Zsh Script'
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+#=============================================================================#
+#                   Powerlevel10k  Installation (MODE 1)                      #
+#=============================================================================#
+#git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
+# Go to .zshrc and modify ZSH_THEME by setting next line
+#echo ZSH_THEME="powerlevel10k/powerlevel10k" >>~/.zshrc
+
+
+#=============================================================================#
+#                   Powerlevel10k  Installation (MODE 2)                      # 
 #=============================================================================#
 #                               INSTALL BREW                                  #
 #=============================================================================#
@@ -55,8 +65,7 @@ echo '---> Adding Homebrew inside your PATH'
 #eval '$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)'
 test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+
 #
 #4. It's recommend that you install GCC
 echo '---> Installing GCC'
@@ -95,25 +104,13 @@ sleep 120 # Await 2 minutes
 
 
 #=============================================================================#
-#                   Powerlevel10k  Installation (MODE 1)                      #
+#                            Install Powerlevel10k                            #
 #=============================================================================#
-#git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Go to .zshrc and modify ZSH_THEME by setting next line
-#echo ZSH_THEME="powerlevel10k/powerlevel10k" >>~/.zshrc
-
-
-#=============================================================================#
-#                   Powerlevel10k  Installation (MODE 2)                      # 
-#=============================================================================#
-#                        Install Powerlevel10k by Brew                        #
-#=============================================================================#
-# https://github.com/romkatv/powerlevel10k#manual
 echo '******************************************************************************'
 echo '*                          Installing Powerlevel10k                          *'
 echo '******************************************************************************'
 echo '---> Installing Powerlevel10k by Brew'
-brew install powerlevel10k
+brew install romkatv/powerlevel10k/powerlevel10k
 echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>! ~/.zshrc
 
 

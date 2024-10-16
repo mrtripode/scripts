@@ -31,7 +31,17 @@ chsh -s $(which zsh)
 echo '---> Installing Oh My Zsh Script'
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+#=============================================================================#
+#                   Powerlevel10k  Installation (MODE 1)                      #
+#=============================================================================#
+#git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
+# Go to .zshrc and modify ZSH_THEME by setting next line
+#echo ZSH_THEME="powerlevel10k/powerlevel10k" >>~/.zshrc
+
+
+#=============================================================================#
+#                   Powerlevel10k  Installation (MODE 2)                      # 
 #=============================================================================#
 #                               INSTALL BREW                                  #
 #=============================================================================#
@@ -95,19 +105,9 @@ sleep 120 # Await 2 minutes
 
 
 #=============================================================================#
-#                   Powerlevel10k  Installation (MODE 1)                      #
-#=============================================================================#
-#git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Go to .zshrc and modify ZSH_THEME by setting next line
-#echo ZSH_THEME="powerlevel10k/powerlevel10k" >>~/.zshrc
-
-
-#=============================================================================#
-#                   Powerlevel10k  Installation (MODE 2)                      # 
-#=============================================================================#
 #                        Install Powerlevel10k by Brew                        #
 #=============================================================================#
+# 
 # https://github.com/romkatv/powerlevel10k#manual
 echo '******************************************************************************'
 echo '*                          Installing Powerlevel10k                          *'
