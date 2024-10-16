@@ -29,7 +29,8 @@ chsh -s $(which zsh)
 
 # Install zsh-autosuggestions
 # (This package allows you to auto-suggest commands based on your commands’ history, allowing you to access commonly used commands with ease.)
-sudo apt install zsh-autosuggestions -y
+sudo apt-get update
+sudo apt-get install zsh-autosuggestions -y
 
 # Install oh-my-zsh
 echo '---> Installing Oh My Zsh Script'
