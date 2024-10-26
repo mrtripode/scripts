@@ -27,8 +27,9 @@ echo "---> Default SHELL in the system: $SHELL"
 echo '---> Making ZSH your default SHELL'
 chsh -s $(which zsh)
 
-sudo apt-get update
-sudo apt-get install zsh-autosuggestions -y
+# Install zsh-autosuggestions
+# (This package allows you to auto-suggest commands based on your commands’ history, allowing you to access commonly used commands with ease.)
+sudo apt install zsh-autosuggestions -y
 
 # Install oh-my-zsh
 echo '---> Installing Oh My Zsh Script'
@@ -58,7 +59,7 @@ echo '---> Adding Homebrew inside your PATH'
 #eval '$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)'
 test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >> ~/.bash_profile
 echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 #
 #4. It's recommend that you install GCC

@@ -27,12 +27,14 @@ echo "---> Default SHELL in the system: $SHELL"
 echo '---> Making ZSH your default SHELL'
 chsh -s $(which zsh)
 
-sudo apt-get update
-sudo apt-get install zsh-autosuggestions -y
+# Install zsh-autosuggestions
+# (This package allows you to auto-suggest commands based on your commands’ history, allowing you to access commonly used commands with ease.)
+sudo apt install zsh-autosuggestions -y
 
 # Install oh-my-zsh
 echo '---> Installing Oh My Zsh Script'
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
 #=============================================================================#
@@ -49,17 +51,13 @@ sudo apt install -y build-essential procps curl file git
 #
 #2. Run Homebrew installation script
 echo '---> Running Homebrew Installation Script'
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 #
 #3. Run these two commands in your terminal to add Homebrew to your PATH
 echo '---> Adding Homebrew inside your PATH'
 #echo >> ~/.bashrc
-#echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>! ~/.zprofile
-#eval '$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)'
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>! ~/.zprofile
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >> ~/.profile
 #
 #4. It's recommend that you install GCC
 echo '---> Installing GCC'
@@ -69,6 +67,13 @@ brew install gcc
 echo '---> Checking Brew installation:' 
 brew doctor
 echo
+
+#=============================================================================#
+#                              UNINSTALL BREW                                 #
+#=============================================================================#
+# Downloading and running uninstall script (Run the following commands in your terminal one by one)
+#curl -O https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh
+#/bin/bash uninstall.sh --help
 
 
 #=============================================================================#
@@ -89,6 +94,8 @@ echo 'The script will stopped 2 minutes, letting us downloading and installing t
 echo 'After you download all of them, you must install one by one by open it and click the button [Install]'
 echo '(You may neet to restart the Windows Terminal app)'
 echo
+echo 'Press [Ctrl+C] to continue...'
+echo
 echo 'Windows Terminal by Microsoft (the new thing): Open settings.json (Ctrl+Shift+,), search for fontFace and set'
 echo "the value to MesloLGS NF for every profile. If you don't find fontFace, add it under profiles → defaults."
 echo
@@ -104,6 +111,11 @@ sleep 120 # Await 2 minutes
 
 # Go to .zshrc and modify ZSH_THEME by setting next line
 #echo ZSH_THEME="powerlevel10k/powerlevel10k" >>~/.zshrc
+# 
+# Remove Homebrew shell configuration
+#vi ~/.zprofile
+# Remove the following line:
+#eval "$(/opt/homebrew/bin/brew shellenv)"
 
 
 #=============================================================================#
